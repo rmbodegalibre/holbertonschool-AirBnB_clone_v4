@@ -15,7 +15,7 @@ $(document).ready(function () {
   });
   $(function () {
     $.get('http://localhost:5001/api/v1/status/', function (data, response) {
-      if (response === 200 && data.status === 'OK') {
+      if (response === 200 || data.status === 'OK') {
         $('DIV#api_status').addClass('available');
       } else {
         $('DIV#api_status').removeClass('available');
