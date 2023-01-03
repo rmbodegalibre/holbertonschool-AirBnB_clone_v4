@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../static/styles/3-footer.css?{{ cache_id }}">
 	<link rel="stylesheet" type="text/css" href="../static/styles/6-filters.css?{{ cache_id }}">
 	<link type="text/css" rel="stylesheet" href="../static/styles/8-places.css?{{ cache_id }}">
-	<link rel="icon" href="../static/images/icon.png" />
+	<link rel="icon" href="../static/images/icon.png?{{ cache_id }}">
 	<title>HBnB</title>
 </head>
 
@@ -62,8 +62,10 @@
 				</div>
 				<div class="information">
 					<div class="max_guest">{{ place.max_guest }} Guest{% if place.max_guest != 1 %}s{% endif %}</div>
-					<div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif %}</div>
-					<div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1 %}s{%
+					<div class="number_rooms">{{ place.number_rooms }} Bedroom{% if place.number_rooms != 1 %}s{% endif
+						%}</div>
+					<div class="number_bathrooms">{{ place.number_bathrooms }} Bathroom{% if place.number_bathrooms != 1
+						%}s{%
 						endif %}</div>
 				</div>
 				<div class="user">
