@@ -23,7 +23,7 @@ $(document).ready(function () {
       }
     });
   })
-  
+
   $.ajax({
     type: 'POST',
     url: 'http://localhost:5001/api/v1/places_search',
