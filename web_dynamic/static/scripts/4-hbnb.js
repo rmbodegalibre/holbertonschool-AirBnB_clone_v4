@@ -32,9 +32,11 @@ $(document).ready(function () {
     contentType: 'application/json',
     success: function (data) {
       $('SECTION.places').append(data.map(place => {
-        return `  <div class="title_box">
+        return `
+        <article>
+          <div class="title_box">
                   <h2>${place.name}</h2>
-                  <div class="price_by_night">${place.price_by_night}</div>
+                  <div class="price_by_night">$${place.price_by_night}</div>
                 </div>
                 <div class="information">
                   <div class="max_guest">${place.max_guest} Guest${place.max_guest !== 1 ? 's' : ''}</div>
@@ -43,24 +45,28 @@ $(document).ready(function () {
                 </div>
                 <div class="description">
                   ${place.description}
-                </div>`
+                </div>
+        </article>`
       }));
     }
   });
 
   $('button[type="button"]').click(function () {
-    console.log(idAmeinty);
     $.ajax({
       type: 'POST',
       url: 'http://localhost:5001/api/v1/places_search',
-      data: JSON.stringify({ id: idAmeinty }),
+      data: JSON.stringify({ amenities: idAmeinty }),
       dataType: 'json',
       contentType: 'application/json',
       success: function (data) {
+        console.log(data);
+        $('SECTION.places').empty();
         $('SECTION.places').append(data.map(place => {
-          return `  <div class="title_box">
+          return `
+          <article>
+            <div class="title_box">
                     <h2>${place.name}</h2>
-                    <div class="price_by_night">${place.price_by_night}</div>
+                    <div class="price_by_night">$${place.price_by_night}</div>
                   </div>
                   <div class="information">
                     <div class="max_guest">${place.max_guest} Guest${place.max_guest !== 1 ? 's' : ''}</div>
@@ -69,10 +75,10 @@ $(document).ready(function () {
                   </div>
                   <div class="description">
                     ${place.description}
-                  </div>`
+                  </div>
+          </article>`
         }));
       }
     });
-  })
-
+  });
 });
